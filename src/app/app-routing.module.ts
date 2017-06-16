@@ -1,3 +1,4 @@
+import { ErrorPageComponent } from './error-page/error-page.component';
 import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
 import { AuthGuard } from './auth-guard.service';
 import { NgModule } from '@angular/core';
@@ -21,7 +22,8 @@ const appRoutes: Routes = [
     { path: ':id', component: ServerComponent },
     { path: ':id/edit', component: EditServerComponent, canDeactivate: [CanDeactivateGuard] }
   ]},
-  { path: '404', component: PageNotFoundComponent },
+  // { path: '404', component: PageNotFoundComponent },
+  { path: '404', component: ErrorPageComponent, data: {message: 'Page not found!'} },
   { path: '**', redirectTo: '/404' },
 ];
 
