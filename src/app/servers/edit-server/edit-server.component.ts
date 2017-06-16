@@ -27,7 +27,8 @@ export class EditServerComponent implements OnInit {
         this.allowEdit = queryParams['allowEdit'] === '1' ? true : false;
       }
     );
-    this.server = this.serversService.getServer(1);
+    const id = +this.route.snapshot.params['id'];
+    this.server = this.serversService.getServer(id);
     this.serverName = this.server.name;
     this.serverStatus = this.server.status;
   }
